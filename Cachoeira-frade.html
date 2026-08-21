@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachoeira do Frade - Sou Ibiapaba</title>
+    <link rel="stylesheet" href="StyleIndex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* ESTILOS CUSTOMIZADOS DO ARTIGO */
+        .article-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            color: #1f2937;
+        }
+
+        .article-hero-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #ecfeff;
+            color: #0e7490;
+            border: 1px solid #a5f3fc;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .article-title-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            color: #083344;
+            margin-bottom: 16px;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 780px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .main-banner-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+
+        .main-banner-wrapper img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .banner-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: #fff;
+            padding: 30px 24px 16px;
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 850px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title-main {
+                font-size: 2.1rem;
+            }
+        }
+
+        .article-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #083344;
+            margin: 35px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+
+        /* CARDS HIGHLIGHTS (RECURSOS) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .feature-card-content {
+            padding: 18px;
+        }
+
+        .feature-card-content h3 {
+            font-size: 1.1rem;
+            color: #083344;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card-content p {
+            font-size: 0.92rem;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* GALERIA VISUAL DUPLA */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .visual-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* CAIXA DE CITACAO */
+        .quote-box {
+            background-color: #ecfeff;
+            border-left: 4px solid #06b6d4;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+            font-style: italic;
+            color: #0e7490;
+            font-size: 1.1rem;
+        }
+
+        /* SIDEBAR / CARD FIXO */
+        .sidebar-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #083344;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        .info-list i {
+            font-size: 1.3rem;
+            color: #0891b2;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .btn-booking {
+            display: block;
+            width: 100%;
+            background-color: #0891b2;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.3);
+        }
+
+        .btn-booking:hover {
+            background-color: #0e7490;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag-cloud span {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar container">
+            <div class="logo">Sou<span> Ibiapaba</span></div>
+            <nav class="nav-menu">
+                <a href="#">Home</a>
+                <a href="Atrativos.html">Atrativos</a>
+                <a href="Roteiros.html">Roteiros</a>
+                <a href="Galeria.html">Galeria</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="nav-buttons">
+                <a href="#" class="btn-text">Entrar</a>
+                <a href="#" class="btn-primary-small">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Cachoeira do Frade</h1>
+            <p>Quedas d'água, piscinas cristalinas e natureza preservada</p>
+            <a href="#artigo" class="btn-cta">Descubra Mais</a>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE ATRATIVOS -->
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="carousel-item">
+                <a href="#"><img src="ImgTeste.jpg" alt="Cachoeira do Frade"></a>
+                <span>Cachoeira do Frade</span>
+            </div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Sitio do Bosco"><span>Sitio do Bosco</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Gruta de Ubajara"><span>Gruta de Ubajara</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 4"><span>Ponto 4</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 5"><span>Ponto 5</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 6"><span>Ponto 6</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 7"><span>Ponto 7</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 8"><span>Ponto 8</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 9"><span>Ponto 9</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 10"><span>Ponto 10</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 11"><span>Ponto 11</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 12"><span>Ponto 12</span></div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO ARTIGO - CACHOEIRA DO FRADE -->
+    <section id="artigo" class="article-container">
+        
+        <!-- Cabeçalho do Artigo -->
+        <header class="article-hero-header">
+            <div class="article-badge">
+                <i class="ph ph-drop"></i> Ecoturismo & Aventura
+            </div>
+            <h1 class="article-title-main">Cachoeira do Frade: O Refúgio Natural e Selvagem de Ubajara</h1>
+            <p class="article-subtitle">
+                Mergulhe em poços cristalinos, caminhe por trilhas cercadas pela Mata Atlântica e encante-se com uma das quedas d'água mais impressionantes da Ibiapaba.
+            </p>
+        </header>
+
+        <!-- Imagem Principal / Banner -->
+        <div class="main-banner-wrapper">
+            <img src="ImgTeste.jpg" alt="Queda d'água da Cachoeira do Frade">
+            <div class="banner-caption">
+                <i class="ph ph-camera"></i> Queda principal da Cachoeira do Frade — Um verdadeiro paraíso escondido em meio à vegetação serrana.
+            </div>
+        </div>
+
+        <!-- Conteúdo em Grid (Artigo + Sidebar) -->
+        <div class="article-grid">
+            
+            <!-- Coluna Principal / Texto -->
+            <article class="article-body">
+                <p>
+                    Para quem deseja se desconectar da rotina urbana e viver uma autêntica experiência de contato com a natureza selvagem, a <strong>Cachoeira do Frade</strong> é uma parada obrigatória em Ubajara. Escondida no relevo acidentado da serra, esta atração encanta visitantes com suas águas límpidas, formações rochosas imponentes e um ambiente preservado de vegetação densa.
+                </p>
+
+                <div class="quote-box">
+                    "O som relaxante das águas correndo entre as pedras e a sombra das árvores seculares transformam a visita em uma renovação completa de energias."
+                </div>
+
+                <h2><i class="ph ph-compass"></i> O Que Torna Essa Cachoeira Especial?</h2>
+                <p>
+                    Diferente de atrativos puramente comerciais, a Cachoeira do Frade preserva o charme e a atmosfera de um refúgio secreto. É o local ideal tanto para quem busca relaxar em poços naturais de banho quanto para amantes de caminhadas e fotografia de paisagens.
+                </p>
+
+                <!-- Grid de Atrações / Recursos -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Poço de Banho Cristalino">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-waves"></i> Poços Cristalinos</h3>
+                            <p>Piscinas naturais de águas frescas e transparentes, ideais para um banho revigorante após a caminhada.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Trilha Ecológica">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-path"></i> Trilha Imersiva</h3>
+                            <p>Percurso cercado por rica flora e fauna nativas, proporcionando uma agradável caminhada ao ar livre.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Paredão Rochoso">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-mountains"></i> Paredão Esculpido</h3>
+                            <p>Imponentes formações rochosas esculpidas pela força do rio ao longo de milhares de anos.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Observação da Natureza">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-bird"></i> Biodiversidade</h3>
+                            <p>Excelente local para observação de pássaros e contemplação da biodiversidade preservada da Ibiapaba.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2><i class="ph ph-footprints"></i> A Trilha e Recomendações</h2>
+                <p>
+                    O acesso até a queda d'água é feito por meio de uma <strong>trilha ecológica de nível leve a moderado</strong>. Durante o trajeto, é recomendável usar calçados fechados e antiderrapantes, já que o trecho próximo às pedras pode ser escorregadio.
+                </p>
+                <p>
+                    A melhor época para visitação ocorre durante e logo após o período chuvoso da região (entre fevereiro e junho), quando o volume da água atinge seu ápice e a vegetação ganha tons verdes intensos.
+                </p>
+
+                <!-- Galeria Dupla de Fotos -->
+                <div class="visual-gallery">
+                    <img src="ImgTeste.jpg" alt="Detalhe do Poço de Água">
+                    <img src="ImgTeste.jpg" alt="Trilha de Acesso em Ubajara">
+                </div>
+
+                <h2><i class="ph ph-leaf"></i> Dicas de Turismo Consciente</h2>
+                <p>
+                    Por se tratar de uma área natural preservada, lembre-se sempre de <strong>recolher todo o seu lixo</strong>, evitar o uso de sabões ou produtos químicos nos poços e respeitar a fauna local. Assim, garantimos que a Cachoeira do Frade continue sendo um refúgio intocado para as próximas gerações.
+                </p>
+            </article>
+
+            <!-- Sidebar Informativa (Card Lateral) -->
+            <aside class="sidebar-card">
+                <h3><i class="ph ph-info"></i> Ficha do Destino</h3>
+                
+                <ul class="info-list">
+                    <li>
+                        <i class="ph ph-map-pin"></i>
+                        <div>
+                            <strong>Localização</strong><br>
+                            Ubajara - Ceará (Serra da Ibiapaba)
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-barbell"></i>
+                        <div>
+                            <strong>Nível de Dificuldade</strong><br>
+                            Leve a Moderado (Requer caminhada em pedras)
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-sparkle"></i>
+                        <div>
+                            <strong>Destaques</strong><br>
+                            Queda d'água, Banho em poço, Trilhas, Fotografia
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-first-aid-kit"></i>
+                        <div>
+                            <strong>Dica de Preparo</strong><br>
+                            Leve repelente, protetor solar, água e use tênis apropriado para caminhada.
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="Contato.html" class="btn-booking">
+                    <i class="ph ph-map-trifold"></i> Agendar Guia Local
+                </a>
+
+                <div class="tag-cloud">
+                    <span>#Ubajara</span>
+                    <span>#CachoeiraDoFrade</span>
+                    <span>#Ecoturismo</span>
+                    <span>#CachoeirasDoCeara</span>
+                    <span>#SerraDaIbiapaba</span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <div class="logo">Sou <span>Ibiapaba</span></div>
+            </div>
+            <nav class="footer-nav">
+                <a href="Guias.html">Guias</a>
+                <a href="Hospedagem.html">Hospedagens</a>
+                <a href="Gastronomia.html">Gastronomia</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="footer-contact">
+                <span>(85) 99999-8888</span>
+                <span>•</span>
+                <span>souibiapaba@gmail.com</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sou Ibiapaba. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT UNIFICADO -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- CARROSSEL DE ATRATIVOS ---
+        const carousel = document.getElementById('carousel');
+        if (!carousel) return;
+
+        let isDragging = false;
+        let startX, scrollStart;
+        let autoPlayTimer = null;
+        let currentIndex = 0;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX;
+            scrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('mouseleave', () => { isDragging = false; startAutoPlay(); });
+        carousel.addEventListener('mouseup', () => { isDragging = false; startAutoPlay(); });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = x - startX;
+            carousel.scrollLeft = scrollStart - walk;
+        });
+
+        let touchStartX, touchScrollStart;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].pageX;
+            touchScrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('touchend', () => { startAutoPlay(); });
+
+        carousel.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = x - touchStartX;
+            carousel.scrollLeft = touchScrollStart - walk;
+        });
+
+        function getItemWidth() {
+            const firstItem = carousel.querySelector('.carousel-item');
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(carousel).gap) || 16;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function autoPlay() {
+            const itemWidth = getItemWidth();
+            const totalItems = carousel.children.length;
+            if (itemWidth === 0 || totalItems === 0) return;
+
+            currentIndex = (currentIndex + 1) % totalItems;
+
+            carousel.scrollTo({
+                left: itemWidth * currentIndex,
+                behavior: 'smooth'
+            });
+        }
+
+        function startAutoPlay() {
+            if (!autoPlayTimer) {
+                autoPlayTimer = setInterval(autoPlay, 3500);
+            }
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        startAutoPlay();
+    });
+    </script>
+</body>
+</html>

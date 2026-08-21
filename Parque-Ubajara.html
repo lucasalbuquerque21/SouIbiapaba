@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parque Nacional de Ubajara - Sou Ibiapaba</title>
+    <link rel="stylesheet" href="StyleIndex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* ESTILOS CUSTOMIZADOS DO ARTIGO */
+        .article-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            color: #1f2937;
+        }
+
+        .article-hero-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #fefce8;
+            color: #854d0e;
+            border: 1px solid #fef08a;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .article-title-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            color: #422006;
+            margin-bottom: 16px;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 780px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .main-banner-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+
+        .main-banner-wrapper img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .banner-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: #fff;
+            padding: 30px 24px 16px;
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 850px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title-main {
+                font-size: 2.1rem;
+            }
+        }
+
+        .article-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #422006;
+            margin: 35px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+
+        /* CARDS HIGHLIGHTS (RECURSOS) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .feature-card-content {
+            padding: 18px;
+        }
+
+        .feature-card-content h3 {
+            font-size: 1.1rem;
+            color: #422006;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card-content p {
+            font-size: 0.92rem;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* GALERIA VISUAL DUPLA */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .visual-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* CAIXA DE CITACAO */
+        .quote-box {
+            background-color: #fefce8;
+            border-left: 4px solid #eab308;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+            font-style: italic;
+            color: #713f12;
+            font-size: 1.1rem;
+        }
+
+        /* SIDEBAR / CARD FIXO */
+        .sidebar-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #422006;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        .info-list i {
+            font-size: 1.3rem;
+            color: #ca8a04;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .btn-booking {
+            display: block;
+            width: 100%;
+            background-color: #ca8a04;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(202, 138, 4, 0.3);
+        }
+
+        .btn-booking:hover {
+            background-color: #a16207;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag-cloud span {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar container">
+            <div class="logo">Sou<span> Ibiapaba</span></div>
+            <nav class="nav-menu">
+                <a href="#">Home</a>
+                <a href="Atrativos.html">Atrativos</a>
+                <a href="Roteiros.html">Roteiros</a>
+                <a href="Galeria.html">Galeria</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="nav-buttons">
+                <a href="#" class="btn-text">Entrar</a>
+                <a href="#" class="btn-primary-small">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Parque Nacional de Ubajara</h1>
+            <p>Teleférico, grutas milenares, mirantes e riqueza ambiental</p>
+            <a href="#artigo" class="btn-cta">Descubra Mais</a>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE ATRATIVOS -->
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="carousel-item">
+                <a href="#"><img src="ImgTeste.jpg" alt="Parque Nacional de Ubajara"></a>
+                <span>Parque de Ubajara</span>
+            </div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Cachoeira do Frade"><span>Cachoeira do Frade</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Sitio do Bosco"><span>Sitio do Bosco</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 4"><span>Ponto 4</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 5"><span>Ponto 5</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 6"><span>Ponto 6</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 7"><span>Ponto 7</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 8"><span>Ponto 8</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 9"><span>Ponto 9</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 10"><span>Ponto 10</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 11"><span>Ponto 11</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 12"><span>Ponto 12</span></div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO ARTIGO - PARQUE NACIONAL DE UBAJARA -->
+    <section id="artigo" class="article-container">
+        
+        <!-- Cabeçalho do Artigo -->
+        <header class="article-hero-header">
+            <div class="article-badge">
+                <i class="ph ph-mountains"></i> Parque Nacional & Conservação
+            </div>
+            <h1 class="article-title-main">Parque Nacional de Ubajara: O Tesouro Natural da Serra da Ibiapaba</h1>
+            <p class="article-subtitle">
+                Explore a menor unidade de conservação federal do Brasil, recheada de grutas calcárias misteriosas, passeio de teleférico e vistas panorâmicas inesquecíveis.
+            </p>
+        </header>
+
+        <!-- Imagem Principal / Banner -->
+        <div class="main-banner-wrapper">
+            <img src="ImgTeste.jpg" alt="Vista Panorâmica e Teleférico do Parque Nacional de Ubajara">
+            <div class="banner-caption">
+                <i class="ph ph-camera"></i> Visão aérea do vale a partir do Teleférico — A principal porta de entrada para a famosa Gruta de Ubajara.
+            </div>
+        </div>
+
+        <!-- Conteúdo em Grid (Artigo + Sidebar) -->
+        <div class="article-grid">
+            
+            <!-- Coluna Principal / Texto -->
+            <article class="article-body">
+                <p>
+                    O <strong>Parque Nacional de Ubajara</strong> é uma das maiores riquezas naturais do Ceará e o destino mais emblemático de toda a Serra da Ibiapaba. Administrado pelo ICMBio, o parque combina a preservação de formações espeleológicas impressionantes com a exuberante transição entre a Caatinga e a Mata Atlântica.
+                </p>
+
+                <div class="quote-box">
+                    "Descer a serra pelo teleférico e adentrar o silêncio ancestral da Gruta de Ubajara é uma jornada épica no tempo e na natureza."
+                </div>
+
+                <h2><i class="ph ph-compass"></i> O Que Fazer no Parque?</h2>
+                <p>
+                    A unidade oferece atrações para todas as idades e perfis de visitantes. Quer você opte pela adrenalina de sobrevoar os vales ou prefira caminhar suavemente pelos mirantes adaptados, a experiência é fascinante.
+                </p>
+
+                <!-- Grid de Atrações / Recursos -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Bondinho / Teleférico de Ubajara">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-tram"></i> Teleférico (Bondinho)</h3>
+                            <p>Um passeio espetacular suspenso a centenas de metros de altura, ligando o topo do planalto à entrada da gruta.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Gruta de Ubajara">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-eye"></i> Gruta de Ubajara</h3>
+                            <p>Formações calcárias de estalactites e estalagmites iluminadas no interior de salões milenares.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Trilhas e Cachoeiras do Parque">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-person-simple-walk"></i> Trilhas Históricas</h3>
+                            <p>Caminhos ecológicos como a Trilha do Cafundó e a Trilha do Araticum rumo a quedas d'água refrescantes.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Mirante do Parque">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-binocular"></i> Mirantes Naturais</h3>
+                            <p>Pontos de observação perfeitos para contemplar a imensidão do vale e tirar fotos incríveis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2><i class="ph ph-map-pin-line"></i> A Experiência da Gruta e Guiamento</h2>
+                <p>
+                    Para entrar na <strong>Gruta de Ubajara</strong>, o acompanhamento por condutores ambientais credenciados é obrigatório, garantindo a segurança dos visitantes e a preservação do frágil ecossistema subterrâneo. A descida pode ser feita via teleférico ou caminhando pela famosa <em>Trilha do Araticum</em>.
+                </p>
+                <p>
+                    Durante o circuito dentro da caverna, a iluminação estratégica revela salões com formações rochosas esculpidas pela água ao longo de milhares de anos.
+                </p>
+
+                <!-- Galeria Dupla de Fotos -->
+                <div class="visual-gallery">
+                    <img src="ImgTeste.jpg" alt="Interior Iluminado da Gruta de Ubajara">
+                    <img src="ImgTeste.jpg" alt="Mirante com vista para o vale em Ubajara">
+                </div>
+
+                <h2><i class="ph ph-info"></i> Dicas para a sua Visita</h2>
+                <p>
+                    O centro de visitantes conta com excelente estrutura, incluindo lanchonetes, banheiros e exposição interativa. Lembre-se de agendar o passeio com antecedência em períodos de alta temporada e de vestir calçados fechados obrigatoriamente para o acesso às trilhas e à gruta.
+                </p>
+            </article>
+
+            <!-- Sidebar Informativa (Card Lateral) -->
+            <aside class="sidebar-card">
+                <h3><i class="ph ph-info"></i> Ficha do Destino</h3>
+                
+                <ul class="info-list">
+                    <li>
+                        <i class="ph ph-map-pin"></i>
+                        <div>
+                            <strong>Localização</strong><br>
+                            Ubajara - Ceará (Unidade de Conservação ICMBio)
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-clock"></i>
+                        <div>
+                            <strong>Horário de Funcionamento</strong><br>
+                            Terça a Domingo, das 8h às 17h
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-sparkle"></i>
+                        <div>
+                            <strong>Principais Atrações</strong><br>
+                            Teleférico, Gruta Calcária, Trilha do Cafundó, Cachoeira do Gavião
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-shield-check"></i>
+                        <div>
+                            <strong>Requisito Obrigatório</strong><br>
+                            Calçado fechado para trilhas/gruta e guia credenciado para caverna.
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="Contato.html" class="btn-booking">
+                    <i class="ph ph-ticket"></i> Agendar Guiamento
+                </a>
+
+                <div class="tag-cloud">
+                    <span>#PARNAUbajara</span>
+                    <span>#GrutaDeUbajara</span>
+                    <span>#Teleférico</span>
+                    <span>#Ecoturismo</span>
+                    <span>#SerraDaIbiapaba</span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <div class="logo">Sou <span>Ibiapaba</span></div>
+            </div>
+            <nav class="footer-nav">
+                <a href="Guias.html">Guias</a>
+                <a href="Hospedagem.html">Hospedagens</a>
+                <a href="Gastronomia.html">Gastronomia</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="footer-contact">
+                <span>(85) 99999-8888</span>
+                <span>•</span>
+                <span>souibiapaba@gmail.com</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sou Ibiapaba. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT UNIFICADO -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- CARROSSEL DE ATRATIVOS ---
+        const carousel = document.getElementById('carousel');
+        if (!carousel) return;
+
+        let isDragging = false;
+        let startX, scrollStart;
+        let autoPlayTimer = null;
+        let currentIndex = 0;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX;
+            scrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('mouseleave', () => { isDragging = false; startAutoPlay(); });
+        carousel.addEventListener('mouseup', () => { isDragging = false; startAutoPlay(); });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = x - startX;
+            carousel.scrollLeft = scrollStart - walk;
+        });
+
+        let touchStartX, touchScrollStart;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].pageX;
+            touchScrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('touchend', () => { startAutoPlay(); });
+
+        carousel.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = x - touchStartX;
+            carousel.scrollLeft = touchScrollStart - walk;
+        });
+
+        function getItemWidth() {
+            const firstItem = carousel.querySelector('.carousel-item');
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(carousel).gap) || 16;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function autoPlay() {
+            const itemWidth = getItemWidth();
+            const totalItems = carousel.children.length;
+            if (itemWidth === 0 || totalItems === 0) return;
+
+            currentIndex = (currentIndex + 1) % totalItems;
+
+            carousel.scrollTo({
+                left: itemWidth * currentIndex,
+                behavior: 'smooth'
+            });
+        }
+
+        function startAutoPlay() {
+            if (!autoPlayTimer) {
+                autoPlayTimer = setInterval(autoPlay, 3500);
+            }
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        startAutoPlay();
+    });
+    </script>
+</body>
+</html>

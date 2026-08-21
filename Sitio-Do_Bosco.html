@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sítio do Bosco - Sou Ibiapaba</title>
+    <link rel="stylesheet" href="StyleIndex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* ESTILOS CUSTOMIZADOS DO ARTIGO */
+        .article-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            color: #1f2937;
+        }
+
+        .article-hero-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .article-title-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            color: #064e3b;
+            margin-bottom: 16px;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 780px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .main-banner-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+
+        .main-banner-wrapper img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .banner-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: #fff;
+            padding: 30px 24px 16px;
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 850px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title-main {
+                font-size: 2.1rem;
+            }
+        }
+
+        .article-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #064e3b;
+            margin: 35px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+
+        /* CARDS HIGHLIGHTS (RECURSOS) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .feature-card-content {
+            padding: 18px;
+        }
+
+        .feature-card-content h3 {
+            font-size: 1.1rem;
+            color: #064e3b;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card-content p {
+            font-size: 0.92rem;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* GALERIA VISUAL DUPLA */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .visual-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* CAIXA DE CITACAO */
+        .quote-box {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+            font-style: italic;
+            color: #065f46;
+            font-size: 1.1rem;
+        }
+
+        /* SIDEBAR / CARD FIXO */
+        .sidebar-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #064e3b;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        .info-list i {
+            font-size: 1.3rem;
+            color: #10b981;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .btn-booking {
+            display: block;
+            width: 100%;
+            background-color: #059669;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.3);
+        }
+
+        .btn-booking:hover {
+            background-color: #047857;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag-cloud span {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar container">
+            <div class="logo">Sou<span> Ibiapaba</span></div>
+            <nav class="nav-menu">
+                <a href="#">Home</a>
+                <a href="Atrativos.html">Atrativos</a>
+                <a href="Roteiros.html">Roteiros</a>
+                <a href="Galeria.html">Galeria</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="nav-buttons">
+                <a href="#" class="btn-text">Entrar</a>
+                <a href="#" class="btn-primary-small">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Sítio do Bosco</h1>
+            <p>Cachoeiras, mirantes e Trilhas</p>
+            <a href="#artigo" class="btn-cta">Descubra Mais</a>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE ATRATIVOS -->
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="carousel-item">
+                <a href="https://premium.appreservas.com.br/booking.php?propid=139281"><img src="ImgTeste.jpg" alt="Sitio do Bosco"></a>
+                <span>Sitio do Bosco</span>
+            </div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Gruta de Ubajara"><span>Gruta de Ubajara</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 3"><span>Pousada x </span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 4"><span>Ponto 4</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 5"><span>Ponto 5</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 6"><span>Ponto 6</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 7"><span>Ponto 7</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 8"><span>Ponto 8</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 9"><span>Ponto 9</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 10"><span>Ponto 10</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 11"><span>Ponto 11</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 12"><span>Ponto 12</span></div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO NOVO ARTIGO - SÍTIO DO BOSCO -->
+    <section id="artigo" class="article-container">
+        
+        <!-- Cabeçalho do Artigo -->
+        <header class="article-hero-header">
+            <div class="article-badge">
+                <i class="ph ph-tree-evergreen"></i> Ecoturismo & Lazer
+            </div>
+            <h1 class="article-title-main">Sítio do Bosco: O Mirante dos Sonhos no Coração de Tianguá</h1>
+            <p class="article-subtitle">
+                Descubra por que este é um dos destinos mais icônicos da Serra da Ibiapaba, unindo aventura nas alturas, boa gastronomia e o verdadeiro clima serrano.
+            </p>
+        </header>
+
+        <!-- Imagem Principal / Banner -->
+        <div class="main-banner-wrapper">
+            <img src="ImgTeste.jpg" alt="Mirante do Sítio do Bosco em Tianguá">
+            <div class="banner-caption">
+                <i class="ph ph-camera"></i> Vista panorâmica do vale no Sítio do Bosco — O ponto mais alto do turismo na Ibiapaba.
+            </div>
+        </div>
+
+        <!-- Conteúdo em Grid (Artigo + Sidebar) -->
+        <div class="article-grid">
+            
+            <!-- Coluna Principal / Texto -->
+            <article class="article-body">
+                <p>
+                    Se você busca um refúgio para desacelerar do ritmo urbano e se reconectar com a natureza, o <strong>Sítio do Bosco</strong> é o destino ideal. Situado em Tianguá, Ceará, o espaço se transformou em uma referência do ecoturismo regional, atraindo desde aventureiros que buscam acampar sob o céu estrelado até famílias em busca de um fim de semana relaxante.
+                </p>
+
+                <div class="quote-box">
+                    "Um lugar onde o nevoeiro da manhã toca os pés das montanhas, e o pôr do sol pinta o horizonte de tons inesquecíveis."
+                </div>
+
+                <h2><i class="ph ph-compass"></i> O Que Torna o Espaço Único?</h2>
+                <p>
+                    O grande diferencial do Sítio do Bosco é a sua capacidade de harmonizar o ecoturismo preservado com uma infraestrutura receptiva de excelência. Tudo foi desenhado para valorizar a vista privilegiada do paredão da serra.
+                </p>
+
+                <!-- Grid de Atrações / Recursos -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Mirante e Pôr do Sol">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-sun"></i> Mirante Incomparável</h3>
+                            <p>Visão panorâmica de tirar o fôlego, perfeita para contemplar o pôr do sol ou o mar de nuvens matinal.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Piscina de Água Natural">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-waves"></i> Piscinas Naturais</h3>
+                            <p>Águas refrescantes abastecidas pelas nascentes da serra, ideais para os dias mais quentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Área de Camping">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-tent"></i> Camping & Chalés</h3>
+                            <p>Estrutura completa com banheiros, iluminação e suporte para barracas ou acomodação em chalés.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="ImgTeste.jpg" alt="Restaurante Típico">
+                        <div class="feature-card-content">
+                            <h3><i class="ph ph-cooking-pot"></i> Gastronomia da Serra</h3>
+                            <p>Restaurante com pratos regionais saborosos, bebidas e café da manhã especial da Ibiapaba.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2><i class="ph ph-path"></i> Experiências e Atividades</h2>
+                <p>
+                    Durante a sua visita, não faltarão opções do que fazer. Para os amantes de caminhadas, o sítio conta com <strong>trilhas ecológicas</strong> de fácil acesso que cortam a vegetação nativa. Nos fins de semana e feriados, o local costuma receber <strong>música ao vivo</strong>, proporcionando um clima descontraído e festivo para os visitantes.
+                </p>
+                <p>
+                    Além disso, o ponto é bastante procurado por praticantes de <em>paraglider</em> e esportes ao ar livre devido às correntes de ar favoráveis da serra.
+                </p>
+
+                <!-- Galeria Dupla de Fotos -->
+                <div class="visual-gallery">
+                    <img src="ImgTeste.jpg" alt="Trilha e Natureza">
+                    <img src="ImgTeste.jpg" alt="Música ao Vivo e Gastronomia">
+                </div>
+
+                <h2><i class="ph ph-heart-suit"></i> Planeje sua Experiência</h2>
+                <p>
+                    Seja para passar apenas o dia aproveitando a opção de <strong>Day Use</strong> ou para estender sua estadia nos chalés e área de camping, o Sítio do Bosco entrega uma atmosfera única de acolhimento e renovação de energias.
+                </p>
+            </article>
+
+            <!-- Sidebar Informativa (Card Lateral) -->
+            <aside class="sidebar-card">
+                <h3><i class="ph ph-info"></i> Ficha do Destino</h3>
+                
+                <ul class="info-list">
+                    <li>
+                        <i class="ph ph-map-pin"></i>
+                        <div>
+                            <strong>Localização</strong><br>
+                            Tianguá - Ceará (Serra da Ibiapaba)
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-clock"></i>
+                        <div>
+                            <strong>Funcionamento</strong><br>
+                            Aberto diariamente para hospedagem e Day Use
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-sparkle"></i>
+                        <div>
+                            <strong>Destaques</strong><br>
+                            Mirante, Piscinas, Camping, Gastronomia, Trilhas
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph ph-coat-hanger"></i>
+                        <div>
+                            <strong>Dica do Guia</strong><br>
+                            Traga um casaco leve! As noites na serra costumam ser frias.
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="https://premium.appreservas.com.br/booking.php?propid=139281" target="_blank" class="btn-booking">
+                    <i class="ph ph-calendar-check"></i> Reservar Agora
+                </a>
+
+                <div class="tag-cloud">
+                    <span>#Tianguá</span>
+                    <span>#SítioDoBosco</span>
+                    <span>#Ecoturismo</span>
+                    <span>#Mirante</span>
+                    <span>#SerraDaIbiapaba</span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <div class="logo">Sou <span>Ibiapaba</span></div>
+            </div>
+            <nav class="footer-nav">
+                <a href="Guias.html">Guias</a>
+                <a href="Hospedagem.html">Hospedagens</a>
+                <a href="Gastronomia.html">Gastronomia</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="footer-contact">
+                <span>(85) 99999-8888</span>
+                <span>•</span>
+                <span>souibiapaba@gmail.com</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sou Ibiapaba. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT UNIFICADO -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- CARROSSEL DE ATRATIVOS ---
+        const carousel = document.getElementById('carousel');
+        if (!carousel) return;
+
+        let isDragging = false;
+        let startX, scrollStart;
+        let autoPlayTimer = null;
+        let currentIndex = 0;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX;
+            scrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('mouseleave', () => { isDragging = false; startAutoPlay(); });
+        carousel.addEventListener('mouseup', () => { isDragging = false; startAutoPlay(); });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = x - startX;
+            carousel.scrollLeft = scrollStart - walk;
+        });
+
+        let touchStartX, touchScrollStart;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].pageX;
+            touchScrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('touchend', () => { startAutoPlay(); });
+
+        carousel.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = x - touchStartX;
+            carousel.scrollLeft = touchScrollStart - walk;
+        });
+
+        function getItemWidth() {
+            const firstItem = carousel.querySelector('.carousel-item');
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(carousel).gap) || 16;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function autoPlay() {
+            const itemWidth = getItemWidth();
+            const totalItems = carousel.children.length;
+            if (itemWidth === 0 || totalItems === 0) return;
+
+            currentIndex = (currentIndex + 1) % totalItems;
+
+            carousel.scrollTo({
+                left: itemWidth * currentIndex,
+                behavior: 'smooth'
+            });
+        }
+
+        function startAutoPlay() {
+            if (!autoPlayTimer) {
+                autoPlayTimer = setInterval(autoPlay, 3500);
+            }
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        startAutoPlay();
+    });
+    </script>
+</body>
+</html>
